@@ -1,0 +1,344 @@
+@import "config";
+@import "menu";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include background();
+  background: $primary-color;
+  color: whitesmoke;
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+.secondary {
+  color: $secondary-color;
+}
+
+//headings
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+  &.sm-heading {
+    padding: 0.2rem 1rem;
+    margin-bottom: 2rem;
+    background: rgba(lighten($primary-color, 2), 0.5);
+  }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+main {
+  padding: 4rem;
+  min-height: calc(100vh - 60px);
+
+  .icons {
+    margin-top: 1rem;
+  }
+  a {
+    padding: 0.4rem;
+
+    &:hover {
+      color: $secondary-color;
+      @include easeOut();
+    }
+  }
+
+  &#home {
+    overflow: hidden;
+    h1 {
+      margin-top: 20vh;
+    }
+  }
+}
+
+//nav section middle one
+nav {
+  position: fixed;
+  padding: 20px 0;
+  width: 100%;
+  z-index: 999;
+}
+
+nav.sticky {
+  background: lighten($secondary-color, 10);
+  a {
+    color: black;
+  }
+}
+
+nav .navbar {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+nav .navbar .logo a {
+  font-weight: 600;
+  font-size: 35px;
+  color: white;
+
+  &:hover {
+    color: white;
+    @include easeOut();
+  }
+}
+
+nav .navbar .menu1 {
+  display: flex;
+  position: relative;
+
+  li {
+    list-style: none;
+    margin: 0 8px;
+  }
+
+  li.active > a {
+    color: #333;
+    font-weight: 500;
+  }
+
+  a {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 6px 0;
+    &:hover {
+      color: white;
+      @include easeOut();
+    }
+  }
+}
+
+//about_nav section
+.about_nav {
+  background: rgba($primary-color, 0.9);
+}
+.projects_nav {
+  background: rgba(#3a3b3c, $background-opacity);
+}
+.contact_nav {
+  background: rgba($primary-color, 0.9);
+}
+
+//about section
+.about-info {
+  display: grid;
+  grid-template-areas:
+    "bio-image bio"
+    "experience experience";
+  grid-template-columns: repeat(2, 1fr);
+  // grid-gap: 30px;
+
+  .bio-image {
+    grid-area: bio-image;
+    border-radius: 50%;
+    border: solid 3px;
+    margin: auto;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1.5rem;
+    p {
+      font-family: cursive;
+    }
+  }
+
+  .experience {
+    grid-area: experience;
+  }
+
+  .experience {
+    display: flex;
+    width: 100%;
+    background: lighten($primary-color, 5);
+    padding: 0.5rem;
+    border-bottom: rgb(45, 133, 145) 3px solid;
+
+    h3 {
+      font-weight: 500;
+    }
+
+    .experience-menu {
+      width: 25%;
+      margin-left: 10%;
+      line-height: 3;
+
+      h3 {
+        &.currentMenu {
+          color: rgb(45, 133, 145);
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+        @include easeOut();
+      }
+    }
+    .experience-desc {
+      width: 50%;
+      margin-left: 10%;
+      line-height: 3;
+
+      li {
+        line-height: 1;
+      }
+      ul {
+        &#work {
+          display: none;
+        }
+      }
+    }
+
+    .experience-resume {
+      width: 25%;
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+
+      a {
+        display: inline;
+        letter-spacing: 0;
+        cursor: pointer;
+        font-size: 15px;
+        border: 3px solid #fff;
+        padding: 1rem 1rem;
+        margin-bottom: 3rem;
+        margin-right: 3.5rem;
+        border-radius: 10%;
+        color: #fff;
+        background-color: #333;
+        border-color: rgba(209, 33, 33, 0.616);
+
+        &:hover {
+          padding: 0.5rem 1rem;
+          background-color: $secondary-color;
+          color: #333;
+        }
+      }
+    }
+  }
+}
+//projects-section
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.7rem;
+  img {
+    width: 100%;
+    border: 3px solid;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: lighten($secondary-color, 5);
+      @include easeOut();
+    }
+  }
+}
+.project-desc .projDesc-close {
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    color: $secondary-color;
+  }
+}
+
+//contact-page
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+
+  div {
+    font-size: 2rem;
+    border: 3px solid #fff;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    background-color: darken(#9da1a5, 5);
+    @include easeOut();
+
+    .contact-headings {
+      color: black;
+    }
+
+    &:hover {
+      padding: 0.5rem 1.5rem;
+      background-color: $secondary-color;
+      color: black;
+      a {
+        color: white;
+      }
+    }
+  }
+}
+
+//Button styles
+.btn {
+  display: block;
+  padding: 0.5rem, 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $secondary-color;
+    color: black;
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken(#3a3b3c, 50);
+  color: #fff;
+}
+
+.btn-light {
+  @extend .btn;
+  background: lighten($primary-color, 50);
+  color: #333;
+}
+
+//footer-section
+footer {
+  &#main-footer {
+    text-align: center;
+    padding: 1rem;
+    background: darken(#3a3b3c, 10);
+    color: #fff;
+  }
+}
+
+//scroll-to-top button css
+.scroll-button a {
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
+  background-color: darken($secondary-color, 5);
+  padding: 1rem;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+@import "mobile";
