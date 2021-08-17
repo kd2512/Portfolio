@@ -113,3 +113,9 @@ function closeDesc() {
   document.getElementById("kharchaBook").style.display = "none";
   document.getElementById("squadManagement").style.display = "none";
 }
+
+function showMenuBtn() {
+  if (menuBtn) {
+    menuBtn.style.display = "block";
+  }
+}
