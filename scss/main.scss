@@ -2,12 +2,19 @@
 @import "menu";
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
   @include background();
-  background: $primary-color;
   color: whitesmoke;
   height: 100%;
   margin: 0;
@@ -47,40 +54,23 @@ header {
   width: 100%;
 }
 
-main {
-  padding: 4rem;
-  min-height: calc(100vh - 60px);
-
-  .icons {
-    margin-top: 1rem;
-  }
-  a {
-    padding: 0.4rem;
-
-    &:hover {
-      color: $secondary-color;
-      @include easeOut();
-    }
-  }
-
-  &#home {
-    overflow: hidden;
-    h1 {
-      margin-top: 20vh;
-    }
-  }
-}
-
 //nav section middle one
 nav {
   position: fixed;
   padding: 20px 0;
   width: 100%;
   z-index: 999;
+  @include easeOut();
 }
 
 nav.sticky {
   background: lighten($secondary-color, 10);
+
+  .logo img {
+    height: 8rem;
+    padding-top: 1rem;
+  }
+
   a {
     color: black;
   }
@@ -88,16 +78,16 @@ nav.sticky {
 
 nav .navbar {
   width: 90%;
+  height: 38px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: auto;
 }
 
-nav .navbar .logo a {
-  font-weight: 600;
-  font-size: 35px;
-  color: white;
+nav .navbar .logo img {
+  height: 8rem;
+  padding-top: 1rem;
 
   &:hover {
     color: white;
@@ -130,35 +120,106 @@ nav .navbar .menu1 {
   }
 }
 
-//about_nav section
+nav.sticky .menu-btn .btn-line {
+  background: $ref-color;
+}
+
+nav .menu-btn,
+.navbar .menu1 .cancel-btn {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  @include easeOut();
+  display: none;
+}
+
+//home nav section
+.home_nav {
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+
+  .home-content {
+    width: 90%;
+    height: 100vh;
+    margin: auto;
+    padding: 4rem;
+    min-height: 100vh;
+
+    .icons {
+      margin-top: 1rem;
+    }
+    a {
+      padding: 0.4rem;
+
+      &:hover {
+        color: $secondary-color;
+        @include easeOut();
+      }
+    }
+
+    &#home {
+      overflow: hidden;
+      h1 {
+        margin-top: 20vh;
+      }
+    }
+  }
+
+  &#home {
+    overflow: hidden;
+    h1 {
+      margin-top: 20vh;
+    }
+  }
+}
+
+//about-nav section
 .about_nav {
+  @include background();
+  padding: 4rem;
+  min-height: 100vh;
   background: rgba($primary-color, 0.9);
 }
+
+//projects-nav section
 .projects_nav {
+  padding: 4rem;
+  min-height: 100vh;
+  //background: rgba(#3a3b3c, $background-opacity);
+  background: rgba($primary-color, 0.9);
+}
+
+//skills-nav section
+.skills_nav {
+  padding: 4rem;
+  min-height: 100vh;
   background: rgba(#3a3b3c, $background-opacity);
 }
+
+//contact-nav section
 .contact_nav {
-  background: rgba($primary-color, 0.9);
+  padding: 4rem;
+  background: rgba(#3a3b3c, $background-opacity);
 }
 
 //about section
 .about-info {
-  display: grid;
-  grid-template-areas:
-    "bio-image bio"
-    "experience experience";
-  grid-template-columns: repeat(2, 1fr);
-  // grid-gap: 30px;
+  .upper-about-info {
+    display: flex;
+    justify-content: space-between;
+  }
 
   .bio-image {
-    grid-area: bio-image;
     border-radius: 50%;
     border: solid 3px;
     margin: auto;
+    height: 10rem;
   }
 
   .bio {
-    grid-area: bio;
     font-size: 1.5rem;
     p {
       font-family: cursive;
@@ -166,14 +227,13 @@ nav .navbar .menu1 {
   }
 
   .experience {
-    grid-area: experience;
-  }
-
-  .experience {
     display: flex;
+    flex-direction: row;
+    justify-items: center;
     width: 100%;
     background: lighten($primary-color, 5);
-    padding: 0.5rem;
+    padding: 1rem;
+    margin-top: 1.5rem;
     border-bottom: rgb(45, 133, 145) 3px solid;
 
     h3 {
@@ -201,7 +261,7 @@ nav .navbar .menu1 {
       margin-left: 10%;
       line-height: 3;
 
-      li {
+      &.li {
         line-height: 1;
       }
       ul {
@@ -212,9 +272,11 @@ nav .navbar .menu1 {
     }
 
     .experience-resume {
-      width: 25%;
+      width: 75%;
       display: flex;
       align-items: center;
+      justify-items: center;
+      justify-content: flex-end;
       margin-top: 1rem;
 
       a {
@@ -240,6 +302,28 @@ nav .navbar .menu1 {
     }
   }
 }
+
+//skills-section
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3rem;
+  justify-items: center;
+
+  img {
+    border-radius: 30%;
+    width: 11rem;
+    height: 11rem;
+  }
+}
+
+.skills_nav .skills-content .more-skills {
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
 //projects-section
 .projects {
   display: grid;
@@ -256,8 +340,14 @@ nav .navbar .menu1 {
     }
   }
 }
+
+.project-desc {
+  color: #3a3b3c;
+}
+
 .project-desc .projDesc-close {
   display: flex;
+  color: #3a3b3c;
   justify-content: space-between;
 
   h2 {

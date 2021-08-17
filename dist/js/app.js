@@ -1,12 +1,14 @@
 //selecting DOM items
 var menuBtn = document.querySelector(".menu-btn");
 var btnLine = document.querySelector(".btn-line");
-var menu = document.querySelector(".menu");
-var menuBranding = document.querySelector(".menu-branding");
-var menuNav = document.querySelector(".menu-nav");
+var menu = document.querySelector(".vertical-menu");
 var navItem = document.querySelectorAll(".nav-item");
 var nav = document.querySelector("nav");
 var scrollBtn = document.querySelector(".scroll-button a");
+var body = document.querySelector("body");
+var navBar = document.querySelector(".navbar");
+var cancelBtn = document.querySelector(".cancel-btn");
+var navLinks = document.querySelectorAll(".menu1 li a");
 
 if (scrollBtn) {
   scrollBtn.style.display = "none";
@@ -16,9 +18,11 @@ window.onscroll = function () {
   if (document.documentElement.scrollTop > 20) {
     nav.classList.add("sticky");
     scrollBtn.style.display = "block";
+    document.getElementById("mylogo").src = "images/KD_wood.png";
   } else {
     nav.classList.remove("sticky");
     scrollBtn.style.display = "none";
+    document.getElementById("mylogo").src = "images/KD_grey.png";
   }
 };
 
@@ -44,24 +48,30 @@ if (
 
 var showMenu = false;
 
-//menuBtn.addEventListener("click", toggleMenu);
+menuBtn.onclick = function () {
+  navBar.classList.add("active");
+  menuBtn.style.opacity = "0";
+  menuBtn.style.pointerevents = "none";
+  body.style.overflow = "hidden";
+  scrollBtn.style.pointerevents = "none";
+};
 
-function toggleMenu() {
-  if (!showMenu) {
-    menuBtn.classList.add("close");
-    menu.classList.add("show");
-    menuBranding.classList.add("show");
-    menuNav.classList.add("show");
-    navItem.forEach((item) => item.classList.add("show"));
-    showMenu = true;
-  } else {
-    menuBtn.classList.remove("close");
-    menu.classList.remove("show");
-    menuBranding.classList.remove("show");
-    menuNav.classList.remove("show");
-    navItem.forEach((item) => item.classList.remove("show"));
-    showMenu = false;
-  }
+cancelBtn.onclick = function () {
+  navBar.classList.remove("active");
+  menuBtn.style.opacity = "1";
+  menuBtn.style.pointerevents = "auto";
+  body.style.overflow = "auto";
+  scrollBtn.style.pointerevents = "auto";
+};
+
+for (var i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener("click", function () {
+    navBar.classList.remove("active");
+    menuBtn.style.opacity = "1";
+    menuBtn.style.pointerevents = "auto";
+    body.style.overflow = "auto";
+    scrollBtn.style.pointerevents = "auto";
+  });
 }
 
 function switchVisible(id) {

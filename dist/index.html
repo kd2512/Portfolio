@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.13.0/devicon.min.css">
+
     <title>Portfolio</title>
 </head>
 
@@ -18,10 +20,10 @@
 
     <header>
 
-        <nav>
+        <nav class="horizontal-menu">
             <div class="navbar">
                 <div class="logo">
-                    <a href="#">Portfolio</a>
+                    <a href="#"><img id="mylogo" src="images/KD_grey.png" alt="logo"></a>
                 </div>
             
                 <ul class="menu1">
@@ -38,7 +40,12 @@
                     <li>
                         <a href="#contact" class= "nav-link" id="contact_nav">Contact</a>
                     </li>
+                    <div class="cancel-btn">
+                        <i class="fas fa-times"></i>
+                    </div>
                 </ul>
+
+                <!-- media icons -->
                 <div class="media-icons">
                     <a href="https://www.linkedin.com/in/kd2512">
                         <i class="fab fa-linkedin fa-2x" aria-hidden="true" title="LinkedIn"></i>
@@ -48,59 +55,38 @@
                     </a>
                 </div>
             </div>
-        </nav>
 
-        <!-- <div class="menu-btn">
-            <div class="btn-line"></div>
-            <div class="btn-line"></div>
-            <div class="btn-line"></div>
-        </div>
-
-        <nav class="menu">
-            <div class="menu-branding">
-                <div class="portrait"></div>
+            <!-- menu-buttons -->
+            <div class="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
             </div>
-            <ul class="menu-nav">
-                <li class="nav-item current">
-                    <a href="index.html" class= "nav-link">Home</a>
-                </li> 
-                <li class="nav-item">
-                    <a href="about.html" class= "nav-link">About</a>
-                </li> 
-                <li class="nav-item">
-                    <a href="skills.html" class= "nav-link">Skills</a>
-                </li> 
-                <li class="nav-item">
-                    <a href="projects.html" class= "nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class= "nav-link">Contact</a>
-                </li>
-            </ul>
-        </nav> -->
+        </nav>
     </header>
 
 
     <section class="home_nav" id="home_nav" >
-        <main id="home">
-        <h1 class="lg-heading">Kumar <span class="secondary">Divyansh</span></h1>
-        <h2 class="sm-heading">Web Developer</h2>
-        <div class="icons">
-            <a href="https://www.linkedin.com/in/kd2512">
-                <i class="fab fa-linkedin fa-2x" aria-hidden="true" title="LinkedIn"></i>
-            </a>
-            <a href="https://github.com/kd2512">
-                <i class="fab fa-github fa-2x" aria-hidden="true" title="Github"></i>
-            </a>
+        <div class="home-content" id="home">
+            <h1 class="lg-heading">Kumar <span class="secondary">Divyansh</span></h1>
+            <h2 class="sm-heading">Web Developer</h2>
+            <div class="icons">
+                <a href="https://www.linkedin.com/in/kd2512">
+                    <i class="fab fa-linkedin fa-2x" aria-hidden="true" title="LinkedIn"></i>
+                </a>
+                <a href="https://github.com/kd2512">
+                    <i class="fab fa-github fa-2x" aria-hidden="true" title="Github"></i>
+                </a>
+            </div>
         </div>
-        </main>
     </section>
 
     <section class= "about_nav" id="about_nav" >
-        <main id="about">
+        <div class="about-content" id="about">
             <h1 class="lg-heading secondary">About <span style="color:black">me</span></h1>
             <h2 class="sm-heading" style="color:black">Let's have a glance!</h2>
             <div class="about-info">
+                <div class="upper-about-info">
                 <img src="images/photo.jpg" alt="Divyansh" title="Divyansh" class="bio-image">
                 <div class="bio">
                     <h3><strong style="color:black">About</strong></h3>
@@ -108,8 +94,9 @@
                         Hi I am Kumar Divyansh! An enthusiastic engineer with a demonstrated history of working in information technology and services industry, and always ready to learn new technologies. Have also been the head of events, product . I have total experience of 2+ years. I am passionate about working on newer things and building scalable products that would make an impact.
                     </p>
                 </div>
+                </div>
     
-                <div class="experience " style="color:black">
+                <div class="experience" style="color:black">
                     <div class="experience-menu">
                         <h3 id="education" onclick="switchVisible(this.id)">Education</h3>
                         <h3 id="work" onclick="switchVisible(this.id)">Experience</h3>
@@ -122,12 +109,7 @@
                                 <p style="font-style: italic;">2015 - 2019</p>
                                 <sub style="font-style: italic;">75%</sub>
                             </li>
-                            <!-- <li >
-                                <h4>XII</h4>
-                                <h5>ISC Board</h5>
-                                <p>2014</p>
-                                <sub>90%</sub>
-                            </li> -->
+                            
                         </ul>
                         <ul id="work-desc">
                             <li>
@@ -145,13 +127,49 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
+    </section>
+
+    <section class="skills_nav" id="skills_nav">
+        <div class="skills-content" id="skills">
+            <h1 class="lg-heading">My<span class="secondary"> Skills</span></h1>
+            <h2 class="sm-heading">Skills reflects our Knowledge..</h2>
+            <div class="skills">
+                <a href="#" >
+                    <img src="icons1/angularjs.png" alt="Project1">
+                </a>
+                <a href="#" >
+                    <img src="icons1/javascript.png" alt="Project1">
+                </a>
+                <a href="#" >
+                    <img src="icons1/java.png" alt="Project1">
+                </a>
+                <a href="#" >
+                    <img src="icons1/React.png" alt="Project1">
+                </a>
+                <a href="#" >
+                    <img src="icons1/HTML.png" alt="Project1">
+                </a>
+                <a href="#" >
+                    <img src="icons1/bootstrap.png" alt="Project1">
+                </a>
+                <a href="#" >
+                    <img src="icons1/sql.png" alt="Project1">
+                </a>
+            </div>
+            <div class="more-skills">
+                <a href="resume/Kumar_Divyansh_Resume.pdf" target="_blank"
+                             role="button" download="Kumar_Divyansh_Resume.pdf">
+                <u>Click here for more</u>&nbsp;<span><i class="fas fa-hand-point-right"></i></span>
+                </a>
+            </div>
+        </div>
     </section>
 
     <section class="projects_nav" id="projects_nav">
-        <main id="projects">
-            <h1 class="lg-heading">My <span class="secondary">Projects</span></h1>
-            <h2 class="sm-heading">Let's have a glance over some of my works....</h2>
+        <div class="project-content" id="projects">
+            <h1 class="lg-heading"><span style="color:black">My </span><span class="secondary">Projects</span></h1>
+            <h2 class="sm-heading" style="color:black">Let's have a glance over some of my works....</h2>
     
             <!-- Project photo and link -->
             <div class="projects">
@@ -234,7 +252,7 @@
     
                 <div class="project-desc" id="squadManagement">
                     <span class="projDesc-close">
-                        <h2><b>SquadManagement App</b></h2>
+                        <h2><b>SquadManagement</b></h2>
                         <i class="fas fa-times fa-2x" style="margin-top:10px" onclick="closeDesc()"></i>
                     </span>
                     <p>
@@ -254,12 +272,12 @@
                     </p>
                 </div>
             </div>
-        </main>
+        </div>
     </section>
 
     <section class="contact_nav" id="contact_nav" >
-        <main id="contact">
-            <h1 class="lg-heading secondary">Contact <span style="color: black;">me</span></h1>
+        <div class="contact-content" id="contact">
+            <h1 class="lg-heading secondary">Contact <span style="color: #fff;">me</span></h1>
             <h2 class="sm-heading" style="color: black;">Please feel free to reach me at...</h2>
             <div class="boxes">
                <div>
@@ -275,7 +293,7 @@
                     <a class="contact-headings" href="https://www.linkedin.com/in/kd2512">kd2512</a>
                 </div> 
             </div>
-        </main>
+        </div>
     </section>
 
     <footer id="main-footer">
