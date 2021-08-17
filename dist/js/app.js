@@ -7,7 +7,6 @@ var nav = document.querySelector("nav");
 var scrollBtn = document.querySelector(".scroll-button a");
 var body = document.querySelector("body");
 var navBar = document.querySelector(".navbar");
-var cancelBtn = document.querySelector(".cancel-btn");
 var navLinks = document.querySelectorAll(".menu1 li a");
 
 if (scrollBtn) {
@@ -50,19 +49,19 @@ var showMenu = false;
 
 menuBtn.onclick = function () {
   navBar.classList.add("active");
-  menuBtn.style.opacity = "0";
+  menuBtn.style.display = "none";
   menuBtn.style.pointerevents = "none";
   body.style.overflow = "hidden";
   scrollBtn.style.pointerevents = "none";
 };
 
-cancelBtn.onclick = function () {
+function closeMenu() {
   navBar.classList.remove("active");
-  menuBtn.style.opacity = "1";
+  menuBtn.style.display = "block";
   menuBtn.style.pointerevents = "auto";
   body.style.overflow = "auto";
   scrollBtn.style.pointerevents = "auto";
-};
+}
 
 for (var i = 0; i < navLinks.length; i++) {
   navLinks[i].addEventListener("click", function () {
