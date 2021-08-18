@@ -66,7 +66,7 @@ function closeMenu() {
 for (var i = 0; i < navLinks.length; i++) {
   navLinks[i].addEventListener("click", function () {
     navBar.classList.remove("active");
-    menuBtn.style.opacity = "1";
+    //menuBtn.style.opacity = "1";
     menuBtn.style.pointerevents = "auto";
     body.style.overflow = "auto";
     scrollBtn.style.pointerevents = "auto";
@@ -115,7 +115,9 @@ function closeDesc() {
 }
 
 function showMenuBtn() {
-  if (menuBtn) {
+  if (menuBtn.style.display == "none") {
     menuBtn.style.display = "block";
+  } else {
+    menuBtn.style.display = menuBtn.style.display;
   }
 }

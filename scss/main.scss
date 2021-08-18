@@ -132,6 +132,7 @@ nav .menu-btn,
   font-size: 20px;
   cursor: pointer;
   @include easeOut();
+  opacity: 0;
   display: none;
 }
 

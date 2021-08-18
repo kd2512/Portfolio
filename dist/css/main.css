@@ -181,6 +181,7 @@ nav .menu-btn,
   font-size: 20px;
   cursor: pointer;
   transition: all 0.3s ease-out;
+  opacity: 0;
   display: none;
 }
 
@@ -521,6 +522,7 @@ footer#main-footer {
   nav .menu-btn,
 .navbar .menu1 .cancel-btn {
     display: block;
+    opacity: 1;
   }
 
   .home_nav,
@@ -645,6 +647,7 @@ div.menu-branding.show {
   nav .menu-btn,
 .navbar .menu1 .cancel-btn {
     display: block;
+    opacity: 1;
   }
 
   .projects {
