@@ -157,8 +157,48 @@
     }
   }
 
-  .boxes div {
-    font-size: 1.5rem;
+  .boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    height: 100%;
+    background-color: $primary-color;
+    border-radius: 3%;
+
+    // div:last-child {
+    //   margin-right: 5%;
+    // }
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 3%;
+    }
+    .contact-photo {
+      justify-items: flex-start;
+      height: 25%;
+    }
+
+    .contact-desc {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      justify-items: center;
+      line-height: 2.5;
+      height: 75%;
+
+      .desc-size {
+        font-size: 1.5rem;
+        font-family: monospace;
+      }
+
+      .desc-size a {
+        color: black;
+        //@include easeOut();
+      }
+    }
   }
 }
 
@@ -204,6 +244,12 @@
       border-radius: 30%;
       width: 6rem;
       height: 6rem;
+    }
+  }
+
+  .boxes .contact-desc {
+    .desc-size {
+      font-size: 1rem;
     }
   }
 }

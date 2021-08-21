@@ -6,6 +6,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  border: 20px;
 }
 
 html,
@@ -18,7 +19,7 @@ body {
   color: whitesmoke;
   height: 100%;
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "ProximaNova";
   line-height: 1.5;
 }
 
@@ -210,21 +211,23 @@ nav .menu-btn,
 .about-info {
   .upper-about-info {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 
   .bio-image {
-    border-radius: 50%;
+    align-items: center;
+    border-radius: 20%;
     border: solid 3px;
     margin: auto;
     height: 10rem;
   }
 
   .bio {
+    margin-top: 5px;
     font-size: 1.5rem;
-    p {
-      font-family: cursive;
-    }
+    word-spacing: 0.5rem;
   }
 
   .experience {
@@ -359,30 +362,39 @@ nav .menu-btn,
 //contact-page
 .boxes {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: row;
   align-items: center;
   margin-top: 1rem;
+  width: 100%;
+  background: rgba($primary-color, 0.9);
+  opacity: 1;
+  border-radius: 3%;
 
-  div {
-    font-size: 2rem;
-    border: 3px solid #fff;
-    padding: 1.5rem 2.5rem;
-    margin-bottom: 3rem;
-    background-color: darken(#9da1a5, 5);
-    @include easeOut();
+  img {
+    width: 90%;
+    border-radius: 3%;
+  }
+  .contact-photo {
+    justify-items: flex-start;
+  }
 
-    .contact-headings {
-      color: black;
+  .contact-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    justify-items: center;
+    line-height: 2.5;
+    width: 450px;
+    padding: 3%;
+
+    .desc-size {
+      font-size: 1.5rem;
+      font-family: monospace;
     }
 
-    &:hover {
-      padding: 0.5rem 1.5rem;
-      background-color: $secondary-color;
+    .desc-size a {
       color: black;
-      a {
-        color: white;
-      }
+      //@include easeOut();
     }
   }
 }
