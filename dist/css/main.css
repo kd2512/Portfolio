@@ -361,34 +361,6 @@ nav .menu-btn,
   font-style: italic;
 }
 
-.projects {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 0.7rem;
-}
-.projects img {
-  width: 100%;
-  border: 3px solid;
-}
-.projects img:hover {
-  opacity: 0.5;
-  border-color: #e4c49b;
-  transition: all 0.3s ease-out;
-}
-
-.project-desc {
-  color: #3a3b3c;
-}
-
-.project-desc .projDesc-close {
-  display: flex;
-  color: #3a3b3c;
-  justify-content: space-between;
-}
-.project-desc .projDesc-close h2 {
-  color: #deb887;
-}
-
 .boxes {
   display: flex;
   flex-direction: row;
@@ -423,15 +395,17 @@ nav .menu-btn,
   color: black;
 }
 
-.btn, .btn-light, .btn-dark {
-  display: block;
-  padding: 0.5rem, 1rem;
-  border: 0;
-  margin-bottom: 0.3rem;
-}
-.btn:hover, .btn-light:hover, .btn-dark:hover {
-  background: #deb887;
-  color: black;
+.btn, .container .mySlides .project-desc .showProjects-btn .projectGit-btn, .container .mySlides .project-desc .showProjects-btn .projectDemo-btn, .btn-light, .btn-dark {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.4rem;
+  margin: 1rem;
+  cursor: pointer;
+  border-radius: 10%;
 }
 
 .btn-dark {
@@ -461,11 +435,116 @@ footer#main-footer {
   border-radius: 6px;
 }
 
-@media screen and (max-width: 1191px) {
-  .projects {
-    grid-template-columns: repeat(4, 1fr);
-  }
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+  margin: 10px;
+}
 
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: #fff;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #333;
+  font-size: 16px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container .mySlides {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.container .mySlides .project-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(58, 59, 60, 0.2);
+}
+.container .mySlides .project-photo img {
+  width: 50%;
+  border-radius: 7%;
+}
+
+.container .mySlides .project-desc {
+  text-align: center;
+  background: rgba(58, 59, 60, 0.8);
+}
+.container .mySlides .project-desc h2 {
+  color: #deb887;
+}
+.container .mySlides .project-desc p {
+  margin: 10px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+.container .mySlides .project-desc .showProjects-btn {
+  display: inline-flex;
+  gap: 50px;
+}
+.container .mySlides .project-desc .showProjects-btn .projectDemo-btn {
+  background: rgba(27, 106, 209, 0.959);
+  color: #fff;
+  font-weight: 500;
+}
+.container .mySlides .project-desc .showProjects-btn .projectGit-btn {
+  background: #333;
+  color: #fff;
+  font-weight: 500;
+}
+.container .mySlides .project-desc .project-desc-sub {
+  padding: 15px;
+}
+
+@media screen and (max-width: 1191px) {
   .skills {
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
@@ -477,10 +556,6 @@ footer#main-footer {
   }
 }
 @media screen and (min-width: 751px) and (max-width: 1190px) {
-  .projects {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .skills {
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
@@ -494,6 +569,10 @@ footer#main-footer {
 @media only screen and (max-width: 750px) {
   nav .navbar {
     width: 90%;
+  }
+
+  .btn, .btn-dark, .btn-light, .container .mySlides .project-desc .showProjects-btn .projectDemo-btn, .container .mySlides .project-desc .showProjects-btn .projectGit-btn {
+    font-size: 1.2rem;
   }
 
   nav .navbar .menu1 {
@@ -537,7 +616,6 @@ footer#main-footer {
 
   .home_nav,
 .about_nav,
-.projects_nav,
 .contact_nav,
 .skills_nav {
     align-items: center;
@@ -546,9 +624,19 @@ footer#main-footer {
   }
   .home_nav .lg-heading,
 .about_nav .lg-heading,
-.projects_nav .lg-heading,
 .contact_nav .lg-heading,
 .skills_nav .lg-heading {
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-size: 75px;
+  }
+
+  .projects_nav {
+    align-items: center;
+    width: 100%;
+  }
+  .projects_nav .lg-heading {
     text-align: center;
     line-height: 1;
     margin-bottom: 1rem;
@@ -605,10 +693,6 @@ div.menu-branding.show {
     padding-top: 0.5rem;
   }
 
-  .projects {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .skills {
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
@@ -653,11 +737,36 @@ div.menu-branding.show {
   .boxes .contact-desc .desc-size a {
     color: black;
   }
+
+  .container .mySlides .project-photo {
+    text-align: center;
+    background: rgba(58, 59, 60, 0.2);
+  }
+  .container .mySlides .project-photo img {
+    width: 100%;
+  }
+
+  .container .mySlides .project-desc {
+    height: 50vh;
+  }
+
+  .container .mySlides .project-desc .project-desc-sub {
+    height: 50vh;
+    overflow: scroll;
+  }
+  .container .mySlides .project-desc .project-desc-sub p {
+    font-size: 1.2rem;
+  }
+
+  .container .mySlides .project-desc .showProjects-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5px;
+  }
 }
 @media screen and (max-width: 500px) {
   .home_nav,
 .about_nav,
-.projects_nav,
 .contact_nav,
 .skills_nav {
     align-items: center;
@@ -666,7 +775,6 @@ div.menu-branding.show {
   }
   .home_nav .home_nav .home-content .lg-heading,
 .about_nav .home_nav .home-content .lg-heading,
-.projects_nav .home_nav .home-content .lg-heading,
 .contact_nav .home_nav .home-content .lg-heading,
 .skills_nav .home_nav .home-content .lg-heading {
     text-align: center;
@@ -676,7 +784,6 @@ div.menu-branding.show {
   }
   .home_nav .lg-heading,
 .about_nav .lg-heading,
-.projects_nav .lg-heading,
 .contact_nav .lg-heading,
 .skills_nav .lg-heading {
     text-align: center;
@@ -685,14 +792,21 @@ div.menu-branding.show {
     font-size: 55px;
   }
 
+  .projects_nav {
+    align-items: center;
+    width: 100%;
+  }
+  .projects_nav .lg-heading {
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-size: 75px;
+  }
+
   nav .menu-btn,
 .navbar .menu1 .cancel-btn {
     display: block;
     opacity: 1;
-  }
-
-  .projects {
-    grid-template-columns: repeat(1, 1fr);
   }
 
   .skills {
@@ -707,6 +821,11 @@ div.menu-branding.show {
 
   .boxes .contact-desc .desc-size {
     font-size: 1rem;
+  }
+
+  .container .mySlides .project-photo {
+    text-align: center;
+    background: rgba(58, 59, 60, 0.2);
   }
 }
 

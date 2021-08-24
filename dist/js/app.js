@@ -35,16 +35,6 @@ if (
   document.getElementById("work").classList.remove("currentMenu");
 }
 
-if (
-  document.getElementById("toDoApp") ||
-  document.getElementById("kharchaBook") ||
-  document.getElementById("squadManagement")
-) {
-  document.getElementById("toDoApp").style.display = "none";
-  document.getElementById("kharchaBook").style.display = "none";
-  document.getElementById("squadManagement").style.display = "none";
-}
-
 var showMenu = false;
 
 menuBtn.onclick = function () {
@@ -107,17 +97,42 @@ function showDesc(id) {
   }
 }
 
-function closeDesc() {
-  console.log("Inside closeDesc function");
-  document.getElementById("toDoApp").style.display = "none";
-  document.getElementById("kharchaBook").style.display = "none";
-  document.getElementById("squadManagement").style.display = "none";
-}
-
 function showMenuBtn() {
   if (menuBtn.style.display == "none") {
     menuBtn.style.display = "block";
   } else {
     menuBtn.style.display = menuBtn.style.display;
   }
+}
+
+//js for sliders
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
+
+function currentSlide(n) {
+  showSlides((slideIndex = n));
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "flex";
+  dots[slideIndex - 1].className += " active";
 }

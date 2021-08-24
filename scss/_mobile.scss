@@ -1,8 +1,5 @@
 //wideScreens
 @include mediaXl {
-  .projects {
-    grid-template-columns: repeat(4, 1fr);
-  }
   .skills {
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
@@ -17,9 +14,6 @@
 
 //LargeScreens
 @include mediaLg {
-  .projects {
-    grid-template-columns: repeat(3, 1fr);
-  }
   .skills {
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
@@ -38,6 +32,9 @@
     width: 90%;
   }
 
+  .btn {
+    font-size: 1.2rem;
+  }
   nav .navbar .menu1 {
     position: fixed;
     left: -100%;
@@ -79,7 +76,6 @@
 
   .home_nav,
   .about_nav,
-  .projects_nav,
   .contact_nav,
   .skills_nav {
     align-items: center;
@@ -93,6 +89,19 @@
       font-size: 75px;
     }
   }
+
+  .projects_nav {
+    align-items: center;
+    width: 100%;
+
+    .lg-heading {
+      text-align: center;
+      line-height: 1;
+      margin-bottom: 1rem;
+      font-size: 75px;
+    }
+  }
+
   ul.menu-nav,
   div.menu-branding {
     float: none;
@@ -140,10 +149,6 @@
     text-align: center;
     padding-left: 4rem;
     padding-top: 0.5rem;
-  }
-
-  .projects {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .skills {
@@ -200,13 +205,42 @@
       }
     }
   }
+
+  .container .mySlides .project-photo {
+    text-align: center;
+    background: rgba(#3a3b3c, 0.2);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .container .mySlides .project-desc {
+    height: 50vh;
+  }
+
+  .container .mySlides .project-desc .project-desc-sub {
+    height: 50vh;
+    overflow: scroll;
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .container .mySlides .project-desc {
+    .showProjects-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5px;
+    }
+  }
 }
 
 //smallScreens-- smartphones etc.
 @include mediaSm {
   .home_nav,
   .about_nav,
-  .projects_nav,
   .contact_nav,
   .skills_nav {
     align-items: center;
@@ -227,15 +261,24 @@
     }
   }
 
+  .projects_nav {
+    align-items: center;
+    width: 100%;
+
+    .lg-heading {
+      text-align: center;
+      line-height: 1;
+      margin-bottom: 1rem;
+      font-size: 75px;
+    }
+  }
+
   nav .menu-btn,
   .navbar .menu1 .cancel-btn {
     display: block;
     opacity: 1;
   }
 
-  .projects {
-    grid-template-columns: repeat(1, 1fr);
-  }
   .skills {
     grid-template-columns: repeat(1, 1fr);
     justify-items: center;
@@ -251,5 +294,9 @@
     .desc-size {
       font-size: 1rem;
     }
+  }
+  .container .mySlides .project-photo {
+    text-align: center;
+    background: rgba(#3a3b3c, 0.2);
   }
 }
